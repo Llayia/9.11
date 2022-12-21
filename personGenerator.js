@@ -53,6 +53,8 @@ const personGenerator = { // объект
 
     GENDER_MALE: 'Мужчина',
     GENDER_FEMALE: 'Женщина',
+  
+
 
     randomIntNumber: (max = 1, min = 0) => Math.floor(Math.random() * (max - min + 1) + min),
 
@@ -62,33 +64,36 @@ const personGenerator = { // объект
         return obj.list[prop];
     },
 
-   
-    randomGender: function () {
-        (randomIntNumber === 1) ? 
-        return GENDER_FEMALE  : 
-        GENDER_MALE;
-} 
-    , 
   
+ 
 
 
     randomFirstName: function() {
-   
+        if (this.person.gender === this.GENDER_MALE) {
         return this.randomValue(this.firstNameMaleJson);
-
-    },
+    } else 
+    return this.randomValue(this.firstNameFemaleJson);
+    }
+    
+    ,
 
 
      randomSurname: function() {
 
-        return this.randomValue(this.surnameJson);
+        if (this.person.gender === this.GENDER_MALE) {
+            return this.randomValue(this.surnameJson);
+        } else 
+        return this.randomValue(this.surnameJson) + 'a';
 
     },
+
+   
+
 
 
     getPerson: function () {
         this.person = {};
-        this.person.gender = this.randomGender();
+        this.person.gender = this.randomIntNumber() === 1 ? this.GENDER_MALE : this.GENDER_FEMALE;
         this.person.firstName = this.randomFirstName();
         this.person.surname = this.randomSurname();
         return this.person;
