@@ -94,3 +94,4 @@ const personGenerator = { // объект
         return this.person;
     }
 };
+
