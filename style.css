@@ -1,0 +1,21 @@
+.m-0, .card-header  {
+    background-color: rgb(183, 211, 233)
+    
+}
+
+.card-body {
+   background-color: rgba(174, 232, 252, 0.126);
+}
+
+.m-0 {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+#surnameOutput {
+    font-size: 30px;
+}
+
+#firstNameOutput {
+    font-size: 30px;
+}

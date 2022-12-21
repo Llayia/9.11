@@ -1,4 +1,4 @@
-const personGenerator = { // объект
+const personGenerator = { 
     surnameJson: `{   
         "count": 15,
         "list": {
@@ -49,7 +49,28 @@ const personGenerator = { // объект
             "id_9": "Елена",
             "id_10": "Анна"
         }
+    }`, 
+    professionMaleJson: `{
+        "count": 5,
+        "list": {     
+            "id_1": "Слесарь",
+            "id_2": "Актер",
+            "id_3": "Продавец",
+            "id_4": "Уборщик",
+            "id_5": "Учитель"
+        }
     }`,
+    professionFemalaJson: `{
+        "count": 5,
+        "list": {     
+            "id_1": "Переводчица",
+            "id_2": "Актриса",
+            "id_3": "Продавщица",
+            "id_4": "Уборщца",
+            "id_5": "Учительница"
+        }
+    }`,
+    
 
     GENDER_MALE: 'Мужчина',
     GENDER_FEMALE: 'Женщина',
@@ -65,17 +86,13 @@ const personGenerator = { // объект
     },
 
   
- 
-
 
     randomFirstName: function() {
         if (this.person.gender === this.GENDER_MALE) {
         return this.randomValue(this.firstNameMaleJson);
     } else 
     return this.randomValue(this.firstNameFemaleJson);
-    }
-    
-    ,
+    },
 
 
      randomSurname: function() {
@@ -87,7 +104,15 @@ const personGenerator = { // объект
 
     },
 
-   
+
+    randomProfession: function() {
+
+        if (this.person.gender === this.GENDER_MALE) {
+           return this.randomValue(this.professionMaleJson);
+        } else 
+      return this.randomValue(this.professionFemalaJson);
+
+    },
 
 
 
@@ -96,6 +121,8 @@ const personGenerator = { // объект
         this.person.gender = this.randomIntNumber() === 1 ? this.GENDER_MALE : this.GENDER_FEMALE;
         this.person.firstName = this.randomFirstName();
         this.person.surname = this.randomSurname();
+        this.person.profession = this.randomProfession();
+        this.person.birthYear = this.randomIntNumber(1940, 2010);
         return this.person;
     }
 };

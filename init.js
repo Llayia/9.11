@@ -6,5 +6,5 @@ window.onload = function()
     document.getElementById('surnameOutput').innerText = initPerson.surname;
     document.getElementById('genderOutput').innerText = initPerson.gender;
     document.getElementById('birthYearOutput').innerText = initPerson.birthYear;
-};
-
+    document.getElementById('professionOutput').innerText = initPerson.profession;
+}
